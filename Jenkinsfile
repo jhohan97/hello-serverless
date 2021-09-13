@@ -3,9 +3,10 @@ pipeline{
     stages{
         stage('Build'){
             steps{
-                nodejs(nodeJSInstallationName: 'nodejs'){
+                nodejs(nodeJSInstallationName: 'nodejs') {
                 sh 'npm install'
-                sh 'npm build'
+                sh 'npm rebuild'
+                sh 'npm run build --skip-test --if-present'
                 }
             }
         }
